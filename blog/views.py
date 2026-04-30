@@ -20,12 +20,12 @@ def go_home(request):
 
 
 
-# from django.views.generic import CreateView, DeleteView, ListView,DetailView, UpdateView
-# from .models import Post
+from django.views.generic import CreateView, DeleteView, ListView,DetailView, UpdateView
+from .models import Post
 
-# class PostListView(ListView):
-#     model = Post
-#     template_name = 'post_list.html'
+class PostListView(ListView):
+    model = Post
+    template_name = 'post_list.html'
     
     
     
