@@ -1,0 +1,40 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Django stuff
+*.log
+db.sqlite3
+
+# Media & static files (if locally generated)
+media/
+staticfiles/
+
+# Environment variables
+.env
+.env.*
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations cache (optional, usually NOT ignored in real projects)
+# *.pyc
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Django secret key backup files (if any)
+*.bak
