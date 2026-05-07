@@ -1,22 +1,107 @@
 from django.http import HttpResponse
+
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from .models import Post
+from .form import SignupForm, loginForm
+from django.contrib.auth.decorators import login_required
 
-def home(request):
-    return HttpResponse("Welcome to Blog")
 
-def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'post_list.html', {'posts': posts})
+def landing_view(request):
+    return render(request,'landing.html',)
 
-def post_detail(request, id):
-    post = Post.objects.get(id=id)
-    return render(request, 'post_detail.html', {'post': post})
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
 
-def go_home(request):
-    return redirect('post_list')
+            User.objects.create_user(
+                username=name,
+                email=email,
+                password=password
+            )
+            return redirect('login')
+    else:
+        form = SignupForm()
 
+    return render(request, 'register.html', {'form': form})
+
+def login_view(request):
+
+    if request.method == 'POST':
+
+        loginf = loginForm(request.POST)
+
+        if loginf.is_valid():
+
+            name = loginf.cleaned_data['name']
+            password = loginf.cleaned_data['password']
+
+            user = authenticate(
+                request,
+                username=name,
+                password=password
+            )
+
+            if user is not None:
+
+                login(request, user)
+
+                return redirect('dashboard')
+
+            else:
+
+                return render(
+                    request,
+                    'login.html',
+                    {
+                        'loginf': loginf,
+                        'error': 'Invalid credentials'
+                    }
+                )
+
+    else:
+
+        loginf = loginForm()
+
+    return render(
+        request,
+        'login.html',
+        {'loginf': loginf}
+    )
+@login_required
+def dashboard_view(request):
+    return render(request,'dashboard.html')
+
+
+# def home(request):
+#     return HttpResponse("Welcome to Blog")
+
+# def post_list(request):
+#     posts = Post.objects.all()
+#     return render(request, 'post_list.html', {'posts': posts})
+
+# def post_detail(request, id):
+#     post = Post.objects.get(id=id)
+#     return render(request, 'post_detail.html', {'post': post})
+
+# def go_home(request):
+#     return redirect('post_list')
+
+# def form(request):
+#     if request.method == "POST":
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             form=ContactForm()
+#     else:
+#         form = ContactForm()
+
+#     return render(request, "base.html", {'form': form})
 
 
 

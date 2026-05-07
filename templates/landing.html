@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Landing Page</title>
+
+</head>
+
+<body style="margin:0; font-family:Arial, sans-serif; background:#f9f9f9;">
+
+    <!-- Navbar -->
+    <div
+        style="display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#111; color:white;">
+
+        <h2 style="margin:0;">MyBrand</h2>
+
+        <div style="display:flex; align-items:center;">
+            <a href="#" style="color:white; margin-left:20px; text-decoration:none;">Home</a>
+            <a href="#" style="color:white; margin-left:20px; text-decoration:none;">Features</a>
+            <a href="#" style="color:white; margin-left:20px; text-decoration:none;">Contact</a>
+
+            <a href="{%url 'login' %}"
+                style="margin-left:30px; padding:8px 15px; border:1px solid white; color:white; text-decoration:none; border-radius:5px;">Login</a>
+            <a href="{%url 'register' %}"
+                style="margin-left:10px; padding:8px 15px; background:#4facfe; color:white; text-decoration:none; border-radius:5px;">Register</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div
+        style="height:90vh; display:flex; justify-content:center; align-items:center; text-align:center; color:white; background:linear-gradient(to right, #4facfe, #00f2fe);">
+        <div>
+            <h1 style="font-size:40px; margin:0;">Welcome to MyBrand</h1>
+            <p style="margin:15px 0; font-size:18px;">Create modern websites faster and smarter.</p>
+
+            <div style="margin-top:20px;">
+                <a href="#"
+                    style="padding:12px 25px; background:white; color:#333; text-decoration:none; border-radius:5px; font-weight:bold; margin-right:10px;">Get
+                    Started</a>
+                <a href="#"
+                    style="padding:12px 25px; border:2px solid white; color:white; text-decoration:none; border-radius:5px;">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+
+    <div style="padding:50px; text-align:center; ">
+        <h2>Features</h2>
+
+        <div style="display:flex; justify-content:center; gap:20px; margin-top:30px; flex-wrap:wrap;">
+
+            <div
+                style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+                <h3>Fast</h3>
+                <p>Lightning fast performance and loading speed.</p>
+            </div>
+
+            <div
+                style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+                <h3>Responsive</h3>
+                <p>Perfect layout on mobile, tablet, and desktop.</p>
+            </div>
+
+            <div
+                style="background:white; padding:20px; width:220px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+                <h3>Easy</h3>
+                <p>Simple UI anyone can use without confusion.</p>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <!-- Footer -->
+    <div style="background:#111; color:white; text-align:center; padding:15px;">
+        <p style="margin:0;">© 2026 MyBrand. All rights reserved.</p>
+    </div>
+
+</body>
+
+</html>

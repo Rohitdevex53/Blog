@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body style="font-family:Arial; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4f4f4;">
+
+<div style="background:white; padding:30px; border-radius:10px; width:300px;">
+    <h2 style="text-align:center;">Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div style="display:flex; align-items:center; margin-bottom:15px;">
+        <h5 style="width:100px; margin:0;">Name :</h5>
+        {{ loginf.name }}
+    </div>
+       <div style="display:flex; align-items:center; margin-bottom:15px;">
+        <h5 style="width:100px; margin:0;">password :</h5>
+        {{ loginf.password }}
+    </div>
+
+        <button type="submit" style="width:100%; padding:10px; margin-top:10px; background:#00c853; color:white; border:none;">Login</button>
+        {% if error %}
+            <p style="color:red;">{{ error }}</p>
+        {% endif %}
+    </form>
+
+    <p style="text-align:center; margin-top:10px;">
+        Don’t have an account? <a href="/signup/">Register</a>
+    </p>
+</div>
+
+</body>
+</html>
